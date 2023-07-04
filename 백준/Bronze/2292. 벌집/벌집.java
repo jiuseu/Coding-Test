@@ -5,7 +5,7 @@ public class Main {
  
 	public static void main(String[] args) throws IOException {
 		
-		
+	   BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
        
        int a= Integer.parseInt(br.readLine());
@@ -14,17 +14,18 @@ public class Main {
        int range = 2;
         
        if(a==1) {
-    	 System.out.println(1);  
+    	 bw.write(String.valueOf(1));  
        }
        else {
     	   while(range <= a) {
     		   range = range +(6*count);
     		   count++;
     	   }
-    	   System.out.print(count);
+    	   bw.write(String.valueOf(count));
        }
     	 
-    
+    bw.flush();
+    bw.close();
        	
 	}
 }

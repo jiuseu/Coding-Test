@@ -1,32 +1,36 @@
-import java.util.*;
-import java.util.stream.Stream;
 import java.io.*;
-import java.text.*;
-import java.time.*;
-import java.math.*;
+import java.math.BigInteger;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class Main{
-    public static void main(String[] args)throws IOException{
-    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    	//StringTokenizer st = new StringTokenizer(br.readLine());
-        //Scanner sc =new Scanner(System.in);
-    	//StringBuilder sb=new StringBuilder();
-       
-       String s = br.readLine();
-       char[] ch =s.toCharArray();
-       Integer [] arr = new Integer[ch.length];
-       
-       for(int i=0;i<ch.length;i++) {
-    	   arr[i]=(ch[i]-'0');
-       }
-       
-       Arrays.sort(arr,Collections.reverseOrder());
-       
-       for(int i=0; i<arr.length;i++) {
-    	   System.out.print(arr[i]);
-       }
-    
+public class main {
+
+    public static void main(String args[])throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+        //StringTokenizer st = new StringTokenizer(br.readLine()," ");
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        String s = br.readLine();
+
+        for (int i = 0; i <s.length(); i++) {
+            char c = s.charAt(i);
+            list.add((int)(c-'0'));
+        }
+
+        Collections.sort(list,Collections.reverseOrder());
+
+        for(int i:list){
+            bw.write(String.valueOf(i));
+        }
+
+        bw.flush();
+        bw.close();
+
+        }
+
+
     }
 
-}
+

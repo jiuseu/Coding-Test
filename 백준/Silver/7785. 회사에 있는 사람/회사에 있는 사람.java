@@ -13,27 +13,30 @@ public class Main {
 
         int a = Integer.parseInt(br.readLine());
         HashMap<String,String> srr = new HashMap<String,String>();
-        HashSet<String> ans = new HashSet<>();
 
         for(int i = 0; i < a; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine()," ");
            String s1 = st.nextToken();
            String s2 = st.nextToken();
-           srr.put(s1,s2);
-           if(srr.get(s1).equals("enter")){
-               ans.add(s1);
+
+           if(srr.get(s1)==null){
+               srr.put(s1,s2);
            }
-           if(srr.get(s1).equals("leave")){
-               ans.remove(s1);
+           else{
+               srr.replace(s1,s2);
            }
         }
 
-        ArrayList<String> arr = new ArrayList<String>(ans);
-        Collections.sort(arr,Collections.reverseOrder());
+        List<String> list = new ArrayList<>(srr.keySet());
+        Collections.sort(list,Collections.reverseOrder());
 
-        for(String s:arr){
-            bw.write(s+"\n");
+        for (String s:list) {
+            if(srr.get(s).equals("enter")){
+                bw.write(s+"\n");
+            }
         }
+
+
         bw.flush();
         bw.close();
 

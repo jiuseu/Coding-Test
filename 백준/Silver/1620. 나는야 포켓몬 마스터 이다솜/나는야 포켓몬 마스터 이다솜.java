@@ -14,7 +14,7 @@ public class Main {
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
         HashMap<String,String> srr = new HashMap<String,String>();
-        HashMap<Integer,String> arr = new HashMap<Integer,String>();
+        HashMap<String,String> arr = new HashMap<String,String>();
 
         for(int i = 0; i < a; i++) {
 

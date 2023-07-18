@@ -1,54 +1,48 @@
-import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.text.*;
-import java.time.*;
-import java.math.*;
+import java.math.BigInteger;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
-	
-  static HashMap<Integer,Integer>arr;
-	
-  public static void main(String[] args)throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	//Scanner sc = new Scanner(System.in);
-    //StringTokenizer st = new StringTokenizer(br.readLine()," ");
-    //StringBuilder sb = new StringBuilder();
-    
-    int a = Integer.parseInt(br.readLine());
-    arr=new HashMap<>();
-    
-    StringTokenizer st = new StringTokenizer(br.readLine()," ");
-    for(int i=0;i<a;i++) {
-      int c = Integer.parseInt(st.nextToken());
-      if(arr.get(c)!=null) {
-    	  arr.put(c, arr.get(c)+1);   
-      }
-      else {
-    	  arr.put(c, 1);
-      } 	  
-      
+
+    public static void main(String args[])throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+        //StringTokenizer st = new StringTokenizer(br.readLine()," ");
+
+        int a = Integer.parseInt(br.readLine());
+        HashMap<Integer,Integer> arr = new HashMap<Integer,Integer>();
+
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+        for(int i = 0; i < a; i++) {
+            int b = Integer.parseInt(st.nextToken());
+           if(arr.get(b)!=null){
+               arr.put(b,arr.get(b)+1);
+           }
+           else{
+               arr.put(b,1);
+           }
+        }
+
+        int c = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine()," ");
+        for(int i=0; i < c; i++){
+            int b = Integer.parseInt(st.nextToken());
+            if(arr.get(b)!=null){
+                sb.append(arr.get(b)).append(" ");
+            }
+            else{
+                sb.append(0).append(" ");
+            }
+        }
+
+        bw.write(String.valueOf(sb));
+        bw.flush();
+        bw.close();
+
+        }
+
     }
-    
-    int b = Integer.parseInt(br.readLine());
-    
-    st = new StringTokenizer(br.readLine()," ");
-    for(int i=0;i<b;i++) {
-    	int d = Integer.parseInt(st.nextToken());
-    	if(arr.get(d)!=null) {
-    		bw.write(String.valueOf(arr.get(d))+" ");	
-    	}
-    	else {
-    		bw.write(String.valueOf(0)+" ");
-    	}
-    	
-    }
-   
-    bw.flush();
-    
-}
-}
+
+

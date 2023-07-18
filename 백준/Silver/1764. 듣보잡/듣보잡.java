@@ -1,47 +1,50 @@
-import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.text.*;
-import java.time.*;
-import java.math.*;
+import java.math.BigInteger;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class Main {
-	
-  public static void main(String[] args)throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	//Scanner sc = new Scanner(System.in);
-    StringTokenizer st = new StringTokenizer(br.readLine()," ");
-    //StringBuilder sb = new StringBuilder();
-    int a = Integer.parseInt(st.nextToken()); 
-    int b = Integer.parseInt(st.nextToken());
-    ArrayList<String>answer = new ArrayList<String>();
-    HashMap<String,String>list = new HashMap<String,String>();
-    
-    for(int i=0;i<a;i++) {
-        String c = br.readLine();
-        list.put(c, c);
+public class main {
+
+    public static void main(String args[])throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        int cnt = 0;
+        HashMap<String,Integer> arr = new HashMap<String,Integer>();
+
+        for(int i = 0; i < a+b; i++) {
+            String s = br.readLine();
+           if(arr.get(s)!=null){
+               arr.put(s,1);
+           }
+           else{
+               arr.put(s,0);
+           }
+        }
+
+        ArrayList<String> list = new ArrayList<String>();
+        for(String s:arr.keySet()){
+            if(arr.get(s)==1){
+                list.add(s);
+                cnt++;
+            }
+
+        }
+        Collections.sort(list);
+        bw.write(String.valueOf(cnt)+"\n");
+        for(String s:list){
+            bw.write(String.valueOf(s)+"\n");
+        }
+
+        bw.flush();
+        bw.close();
+
+        }
+
     }
-    
-    int cnt = 0;
-    
-    for(int i=0;i<b;i++) {
-      String s = br.readLine();
-      if(list.get(s)!=null) {
-    	  answer.add(s); 
-    	  cnt++; 
-      }
-    }
-    Collections.sort(answer);
-    
-    bw.write(String.valueOf(cnt)+"\n");
-    for(String c:answer) { 	
-    	bw.write(c+"\n");
-    }
-  
-    bw.flush();
-}
-}
+
+

@@ -1,28 +1,32 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
-import java.util.StringTokenizer;
- 
-public class Main {
- 
-	public static void main(String[] args) throws IOException {
- 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
- 
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
- 
-		int N = Integer.parseInt(st.nextToken());
-		int K = Integer.parseInt(st.nextToken());
- 
-		// nCk = n! / ((n-k)! * k!)
-		System.out.println(factorial(N) / (factorial(N - K) * factorial(K)));
-	}
- 
-	static int factorial(int N) {
-		// factorial(0) == 1 이다. 
-		if (N <= 1)	{
-			return 1;
-		}
-		return N * factorial(N - 1);
-	}
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class main {
+    
+    public static void main(String args[])throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+
+        bw.write(String.valueOf(factorial(a) / (factorial(a - b) * factorial(b))));
+        bw.flush();
+        bw.close();
+    }
+
+    static int factorial(int c) {
+        // factorial(0) == 1 이다.
+        if (c <= 1)	{
+            return 1;
+        }
+        return c * factorial(c- 1);
+    }
+
 }
+
+

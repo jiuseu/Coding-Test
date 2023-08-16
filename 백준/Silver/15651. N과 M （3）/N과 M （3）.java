@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    static boolean [] p;
     static int[] list;
     static StringBuilder sb;
 
@@ -18,7 +17,6 @@ public class Main {
         int b = Integer.parseInt(st.nextToken());
 
         list= new int[b];
-        p=new boolean[a+1];
         dfs(a,b,0);
 
         bw.write(String.valueOf(sb));
